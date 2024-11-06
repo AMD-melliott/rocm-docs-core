@@ -1,0 +1,10 @@
+root: index
+subtrees:
+  - caption: User Guide
+    entries:
+      - file: user_guide/getting_started
+      - file: user_guide/basic_usage
+
+  - caption: Reference
+    entries:
+      - file: reference/configuration 
