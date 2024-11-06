@@ -1,55 +1,77 @@
 # ROCm Documentation Core Utilities
 
-ROCm Docs Core is also distributed as a pip package available from PyPi as
-[rocm-docs-core](https://pypi.org/project/rocm-docs-core/)
+ROCm Docs Core is a documentation framework that provides consistent styling, tooling, and configuration across all ROCm projects. It extends Sphinx with ROCm-specific features, making it easy to create and maintain high-quality documentation that seamlessly integrates with the broader ROCm ecosystem.
 
-## Purpose
+## Key Features
 
-This repository is comprised of utilities, styling, scripts, and additional HTML content that is common to all ROCm projects' documentation. This greatly aids in maintaining the documentation, as any change to the appearance only needs to be modified in one location.
+- **Unified Theme**: Consistent ROCm styling and branding across all documentation
+- **API Documentation**: Built-in Doxygen integration for API documentation
+- **Quality Assurance**: Automated spell checking and documentation linting
+- **Cross-Project References**: Easy linking between ROCm documentation projects
+- **Article Metadata**: Support for OS compatibility, reading time, and other metadata
 
-## Usage
+## Prerequisites
 
-### Setup
+- Python 3.10 or higher
+- pip package manager
+- (Optional) Doxygen for API documentation
 
-- Install this repository as a Python package using pip
-  - From PyPi: `pip install rocm-docs-core`
-  - From GitHub: `pip install git+https://github.com/ROCm/rocm-docs-core.git`.
+## Installation
 
-- Set `rocm_docs_theme` as the HTML theme
-- Add `rocm_docs` as an extension
-- Optionally, add `rocm_docs.doxygen` and `sphinxcontrib.doxylink` as extensions
+```bash
+# From PyPI
+pip install rocm-docs-core
 
-For an example, see the [test conf.py](./tests/sites/doxygen/extension/conf.py)
+# Or from GitHub
+pip install git+https://github.com/ROCm/rocm-docs-core.git
+```
 
-### Legacy Setup
+## Basic Configuration
 
-- From the `rocm_docs` package import the function `setup_rocm_docs` into `conf.py` for the ReadTheDocs project.
-- Call exactly the following, replacing `<PROJECT NAME HERE>` with the name of the project.
+Create a `conf.py` file in your documentation directory:
 
-For an example, see the [test legacy conf.py](./tests/sites/doxygen/legacy/conf.py)
+```python
+# Basic project information
+project = "Your Project Name"
+version = "1.0.0"
+release = "1.0.0"
+author = "Advanced Micro Devices, Inc."
+copyright = "Copyright (c) 2024 Advanced Micro Devices, Inc. All rights reserved."
+
+# Required settings
+html_theme = "rocm_docs_theme"
+extensions = ["rocm_docs"]
+
+# Optional: Enable Doxygen integration
+extensions += ["rocm_docs.doxygen", "sphinxcontrib.doxylink"]
+doxygen_root = "path/to/doxygen"
+doxysphinx_enabled = True
+```
+
+For complete examples, see:
+- [Modern configuration example](./tests/sites/doxygen/extension/conf.py)
+- [Legacy configuration example](./tests/sites/doxygen/legacy/conf.py)
 
 ## Documentation
 
-The `rocm-docs-core` documentation is viewable at [https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/](https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/)
+Complete documentation is available at [rocm.docs.amd.com/projects/rocm-docs-core](https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/)
 
-### User Guide
+### Essential Guides
 
-The User Guide describes how users can make use of functionality in `rocm-docs-core`
-
-It is viewable at [https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/user_guide/user_guide.html](https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/user_guide/user_guide.html)
-
-### Developer Guide
-
-The Developer Guide provides additional information on the processes in toolchains for `rocm-docs-core`
-
-It is viewable at [https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/developer_guide/developer_guide.html](https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/developer_guide/developer_guide.html)
+- [User Guide](https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/user_guide/user_guide.html): Basic usage and features
+- [Developer Guide](https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/developer_guide/developer_guide.html): Development workflow and tooling
+- [Doxygen Integration](https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/user_guide/doxygen_integration.html): API documentation setup
+- [Documentation Quality](https://rocm.docs.amd.com/projects/rocm-docs-core/en/latest/user_guide/spellcheck.html): Spell checking and linting guides
 
 ### Build Documentation Locally
-
-To build the `rocm-docs-core` documentation locally, run the commands below:
 
 ```bash
 pip install -r requirements.txt
 cd docs
 python3 -m sphinx -T -E -b html -d _build/doctrees -D language=en . _build/html
 ```
+
+## Getting Help
+
+- [File an Issue](https://github.com/ROCm/rocm-docs-core/issues)
+- [ROCm Documentation](https://rocm.docs.amd.com/)
