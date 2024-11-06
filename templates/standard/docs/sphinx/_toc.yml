@@ -1,0 +1,11 @@
+root: index
+subtrees:
+  - caption: API Documentation
+    entries:
+      - file: api/overview
+      - file: api/reference
+      - file: api/example
+
+  - caption: Examples
+    entries:
+      - file: api/example

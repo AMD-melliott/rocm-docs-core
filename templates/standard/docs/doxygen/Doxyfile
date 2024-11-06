@@ -1,0 +1,41 @@
+# Doxyfile for My Project
+
+# Project settings
+PROJECT_NAME           = "My Project"
+PROJECT_NUMBER        = "1.0.0"
+PROJECT_BRIEF         = "Example project demonstrating ROCm Docs Core features"
+
+# Input files
+INPUT                 = ../api
+FILE_PATTERNS         = *.h *.cpp
+RECURSIVE             = YES
+
+# Output settings
+OUTPUT_DIRECTORY      = .
+GENERATE_HTML         = YES
+GENERATE_XML          = YES
+XML_OUTPUT            = xml
+HTML_OUTPUT           = html
+
+# Documentation settings
+EXTRACT_ALL           = YES
+EXTRACT_PRIVATE       = YES
+EXTRACT_STATIC       = YES
+EXTRACT_LOCAL_CLASSES = YES
+
+# Diagrams and graphs
+HAVE_DOT             = NO
+CLASS_DIAGRAMS      = YES
+HIDE_UNDOC_RELATIONS = NO
+
+# Advanced settings
+GENERATE_LATEX       = NO
+GENERATE_RTF         = NO
+GENERATE_MAN         = NO
+GENERATE_DOCBOOK     = NO
+CASE_SENSE_NAMES     = NO
+HIDE_SCOPE_NAMES     = NO
+SHOW_INCLUDE_FILES   = YES
+SORT_BRIEF_DOCS      = YES
+SORT_MEMBERS_CTORS_1ST = YES
+SHOW_USED_FILES      = YES 
