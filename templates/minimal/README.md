@@ -13,25 +13,25 @@ This is a minimal working template for creating documentation with ROCm Docs Cor
 
 ## Building the Documentation
 
-1. Install dependencies:
+- Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Build the documentation:
+- Build the documentation:
 
 ```bash
 cd docs
 python3 -m sphinx -T -E -b html -d _build/doctrees -D language=en . _build/html
 ```
 
-3. View the documentation:
-   - Open `docs/_build/html/index.html` in your web browser
+- View the documentation:
+  - Open `docs/_build/html/index.html` in your web browser
 
 ## Template Structure
 
-```
+```text
 .
 ├── README.md               # This file
 ├── docs/
