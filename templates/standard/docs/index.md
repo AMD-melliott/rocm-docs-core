@@ -16,4 +16,4 @@ My Project is an example project showcasing various documentation features:
 
 - [Getting Started](user_guide/getting_started.md)
 - [API Reference](api/overview.md)
-- [Contributing Guide](developer_guide/contributing.md) 
+- [Contributing Guide](developer_guide/contributing.md)

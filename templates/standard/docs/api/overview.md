@@ -18,4 +18,4 @@ obj.initialize();
 obj.doSomething();
 ```
 
-For detailed API documentation, see the [API Reference](reference.md). 
+For detailed API documentation, see the [API Reference](reference.md).

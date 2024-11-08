@@ -24,4 +24,4 @@ if (obj.initialize()) {
 }
 ```
 
-For more examples, see the [Examples](examples.md) page. 
+For more examples, see the [Examples](examples.md) page.

@@ -7,6 +7,7 @@ This guide explains the configuration options available in ROCm Docs Core and ho
 These settings must be included in your `conf.py` file:
 
 ### Basic Project Information
+
 ```python
 project = "Your Project Name"
 version = "1.0.0"
@@ -16,6 +17,7 @@ copyright = "Copyright (c) 2024 Advanced Micro Devices, Inc. All rights reserved
 ```
 
 ### Theme Configuration
+
 ```python
 html_theme = "rocm_docs_theme"
 extensions = ["rocm_docs"]
@@ -24,6 +26,7 @@ extensions = ["rocm_docs"]
 ## Optional Configuration
 
 ### Doxygen Integration
+
 Enable API documentation generation with Doxygen:
 
 ```python
@@ -37,6 +40,7 @@ doxygen_project = {
 ```
 
 ### Article Metadata
+
 Configure metadata for documentation pages:
 
 ```python
@@ -57,6 +61,7 @@ article_pages = [
 ```
 
 ### Cross-Project References
+
 Configure links to other ROCm projects:
 
 ```python
@@ -65,6 +70,7 @@ external_projects = ["hipify", "python", "rocm"]
 ```
 
 ### Table of Contents
+
 Specify the location of your table of contents file:
 
 ```python
@@ -94,6 +100,7 @@ html_theme_options = {
 ## Advanced Configuration
 
 ### Search Settings
+
 ```python
 html_search_language = "en"
 html_search_options = {
@@ -102,10 +109,11 @@ html_search_options = {
 ```
 
 ### Output Options
+
 ```python
 html_show_sourcelink = False
 html_show_sphinx = False
 html_copy_source = False
 ```
 
-For more examples, see the [test configurations](../../tests/sites/) in the ROCm Docs Core repository. 
+For more examples, see the [test configurations](../../tests/sites/) in the ROCm Docs Core repository.

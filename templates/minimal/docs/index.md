@@ -8,4 +8,4 @@ Add your project overview here.
 
 ## Getting Started
 
-Add getting started information here. 
+Add getting started information here.

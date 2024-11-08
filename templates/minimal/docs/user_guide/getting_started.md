@@ -8,4 +8,4 @@ Describe installation steps here.
 
 ## Basic Usage
 
-Add basic usage information here. 
+Add basic usage information here.

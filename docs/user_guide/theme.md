@@ -165,6 +165,7 @@ html_theme_options = {
 ## Examples
 
 See complete theme implementations in the templates:
+
 - [Minimal theme example](../../templates/minimal/docs/conf.py)
 - [Standard theme example](../../templates/standard/docs/conf.py)
 
@@ -183,4 +184,4 @@ See complete theme implementations in the templates:
 3. **Theme Options**
    - Validate option names
    - Check value types
-   - Consult theme documentation 
+   - Consult theme documentation

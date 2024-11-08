@@ -153,6 +153,7 @@ List of configuration options:
 
 - [Related Feature](related.md)
 - [API Reference](../api/reference.md)
+
 ```
 
 ## MyST-Specific Features
@@ -165,6 +166,7 @@ List of configuration options:
 
 Content
 ```
+
 ```
 
 Common directives:
@@ -186,6 +188,7 @@ Common directives:
 Inline math: `$E = mc^2$`
 
 Block math:
+
 ```markdown
 $$
 \frac{d}{dx}e^x = e^x
@@ -196,4 +199,4 @@ $$
 
 - [MyST Markdown Reference](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html)
 - [Sphinx Documentation](https://www.sphinx-doc.org/en/master/)
-- [Example Documentation](../../templates/standard/) 
+- [Example Documentation](../../templates/standard/)

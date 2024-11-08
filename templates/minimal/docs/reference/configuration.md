@@ -8,4 +8,4 @@ Describe basic configuration options here.
 
 ## Advanced Configuration
 
-Describe advanced configuration options here. 
+Describe advanced configuration options here.

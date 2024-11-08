@@ -51,21 +51,25 @@ article_pages = [
 ## Available Metadata Fields
 
 ### OS Compatibility
+
 - **Key**: `os`
 - **Values**: `["linux"]`, `["windows"]`, or `["linux", "windows"]`
 - **Purpose**: Indicates which operating systems the content applies to
 
 ### Author Information
+
 - **Key**: `author`
 - **Value**: String containing author name or team
 - **Purpose**: Credits content creators
 
 ### Publication Date
+
 - **Key**: `date`
 - **Value**: Date string in YYYY-MM-DD format
 - **Purpose**: Shows when content was published/updated
 
 ### Reading Time
+
 - **Key**: `read-time`
 - **Value**: String with estimated reading time
 - **Purpose**: Helps users gauge content length

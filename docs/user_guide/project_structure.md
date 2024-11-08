@@ -20,9 +20,11 @@ your-project/
 ### Required Files Explained
 
 #### conf.py
+
 The Sphinx configuration file. See the [Configuration Guide](configuration.md) for details.
 
 #### index.md
+
 Your documentation homepage. Example:
 
 ```markdown
@@ -36,6 +38,7 @@ Main documentation content...
 ```
 
 #### sphinx/_toc.yml
+
 Defines your documentation structure. Example:
 
 ```yaml
@@ -54,6 +57,7 @@ subtrees:
 ```
 
 #### requirements.txt
+
 Must include rocm-docs-core and any additional dependencies:
 
 ```
@@ -98,6 +102,7 @@ your-project/
 ```
 
 Additional Doxygen requirements in conf.py:
+
 ```python
 extensions += ["rocm_docs.doxygen", "sphinxcontrib.doxylink"]
 doxygen_root = "doxygen"
@@ -124,6 +129,7 @@ your-project/
 ```
 
 Additional cross-project settings in conf.py:
+
 ```python
 external_projects_current_project = "your_project"
 external_projects = ["other_project1", "other_project2"]
@@ -142,6 +148,7 @@ external_projects = ["other_project1", "other_project2"]
 ## Example Repositories
 
 For complete working examples, see:
+
 - [Basic site template](../../templates/minimal/)
 - [Full-featured template](../../templates/standard/)
 - [Doxygen integration example](../../tests/sites/doxygen/extension/)

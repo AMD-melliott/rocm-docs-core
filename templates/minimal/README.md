@@ -14,11 +14,13 @@ This is a minimal working template for creating documentation with ROCm Docs Cor
 ## Building the Documentation
 
 1. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 2. Build the documentation:
+
 ```bash
 cd docs
 python3 -m sphinx -T -E -b html -d _build/doctrees -D language=en . _build/html
@@ -54,4 +56,4 @@ python3 -m sphinx -T -E -b html -d _build/doctrees -D language=en . _build/html
    - Creating new `.md` files in the appropriate directories
    - Adding them to `docs/sphinx/_toc.yml`
 
-3. Preview your changes locally by rebuilding the documentation 
+3. Preview your changes locally by rebuilding the documentation

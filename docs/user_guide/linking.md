@@ -17,19 +17,25 @@ external_projects = ["hip", "rocm", "rocblas"]
 ## Link Syntax
 
 ### Basic Links
+
 Link to another project's documentation:
+
 ```markdown
 See the [HIP Installation Guide](hip:installation).
 ```
 
 ### Section Links
+
 Link to specific sections:
+
 ```markdown
 Check the [ROCm Installation Prerequisites](rocm:install/prerequisites#system-requirements).
 ```
 
 ### API References
+
 Link to API documentation:
+
 ```markdown
 See the [`hipMalloc`](hip:hipMalloc) function reference.
 ```
@@ -54,6 +60,7 @@ external_projects = [
 ## Best Practices
 
 1. **Use Descriptive Link Text**
+
    ```markdown
    # Good
    See the [HIP Installation Guide](hip:installation)
@@ -75,6 +82,7 @@ external_projects = [
 ## Advanced Features
 
 ### Version-Specific Links
+
 ```python
 # In conf.py
 external_projects_versions = {
@@ -84,6 +92,7 @@ external_projects_versions = {
 ```
 
 ### Custom Project Mapping
+
 ```python
 # In conf.py
 external_projects_mapping = {

@@ -173,5 +173,6 @@ subtrees:
 ## Examples
 
 See complete examples in the templates:
+
 - [Minimal template TOC](../../templates/minimal/docs/sphinx/_toc.yml)
-- [Standard template TOC](../../templates/standard/docs/sphinx/_toc.yml) 
+- [Standard template TOC](../../templates/standard/docs/sphinx/_toc.yml)

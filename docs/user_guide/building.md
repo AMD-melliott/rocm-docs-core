@@ -8,9 +8,11 @@ Before building your documentation, ensure you have:
 
 1. Python 3.10 or higher installed
 2. All dependencies installed via pip:
+
    ```bash
    pip install -r requirements.txt
    ```
+
 3. (Optional) Doxygen installed if using API documentation
 
 ## Basic Build Process
@@ -25,6 +27,7 @@ python3 -m sphinx -T -E -b html -d _build/doctrees -D language=en . _build/html
 ```
 
 This command:
+
 - `-T`: Shows full traceback for errors
 - `-E`: Forces rebuilding of all files
 - `-b html`: Builds HTML output
@@ -42,11 +45,13 @@ Open `docs/_build/html/index.html` in your web browser.
 For faster development, use sphinx-autobuild:
 
 1. Install sphinx-autobuild:
+
    ```bash
    pip install sphinx-autobuild
    ```
 
 2. Run the auto-builder:
+
    ```bash
    cd docs
    sphinx-autobuild . _build/html
@@ -59,11 +64,13 @@ For faster development, use sphinx-autobuild:
 ### Common Build Issues
 
 1. **Missing Dependencies**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 2. **Doxygen XML Not Found**
+
    ```bash
    cd docs/doxygen
    doxygen Doxyfile
@@ -79,6 +86,7 @@ For faster development, use sphinx-autobuild:
 ### Output Formats
 
 Build different formats:
+
 ```bash
 # PDF output
 sphinx-build -b latex . _build/latex
@@ -145,4 +153,4 @@ jobs:
 
 - [Sphinx Build Configuration](https://www.sphinx-doc.org/en/master/man/sphinx-build.html)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Example Templates](../../templates/) 
+- [Example Templates](../../templates/)

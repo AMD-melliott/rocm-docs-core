@@ -19,4 +19,4 @@ This is a full-featured template for creating comprehensive documentation with R
 - Cross-project linking configuration
 - Article metadata (OS compatibility, reading time)
 - Custom theme configuration
-- Search optimization 
+- Search optimization
