@@ -10,28 +10,42 @@ defaults:
   maxdepth: 6
 root: index.md
 subtrees:
-  - entries:
+  - caption: User Guide
+    entries:
     - file: user_guide/user_guide
-      subtrees:
-      - entries:
-        - file: user_guide/spellcheck
-        - file: user_guide/linting
-        - file: user_guide/linking
-          subtrees:
-          - entries:
-            - file: user_guide/linking_md
-            - file: user_guide/linking_rst
-            - file: user_guide/linking_toc
-        - file: user_guide/doxygen_integration
-        - file: user_guide/article_info
-    - file: developer_guide/developer_guide
-      subtrees:
-      - entries:
-        - file: developer_guide/just
-        - file: developer_guide/python_linting
-        - file: developer_guide/commitizen
-        - file: developer_guide/projects_yaml
-        - file: developer_guide/dependabot
+  - caption: Getting Started
+    entries:
+    - file: user_guide/project_structure
+    - file: user_guide/configuration
+    - file: user_guide/building
+  - caption: Basic Features
+    entries:
+    - file: user_guide/writing
+    - file: user_guide/toc
+    - file: user_guide/article_info    
+  - caption: Advanced Features
+    entries:    
+    - file: user_guide/theme
+    - file: user_guide/linking
+      entries:
+      - file: user_guide/linking_md
+      - file: user_guide/linking_rst
+      - file: user_guide/linking_toc
+    - file: user_guide/doxygen_integration
+  - caption: Quality Tools
+    entries:  
+    - file: user_guide/spellcheck
+    - file: user_guide/linting
+  - caption: Troubleshooting
+    entries:
+    - file: user_guide/faq
+  - file: developer_guide/developer_guide
+    entries:
+    - file: developer_guide/just
+    - file: developer_guide/python_linting
+    - file: developer_guide/commitizen
+    - file: developer_guide/projects_yaml
+    - file: developer_guide/dependabot
   - caption: Demo Doxygen Documentation Integration
     entries:
     - file: demo/doxygen/html/index
