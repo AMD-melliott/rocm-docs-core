@@ -18,16 +18,68 @@ html_theme_options = {
    - Standard ROCm documentation theme
    - Full navigation sidebar
    - API documentation support
+   - Version-aware header showing current ROCm version
+   - Secondary navigation with GitHub, Community, and Support links
+   - Version list in header
 
 2. **rocm-blogs**
    - Blog-oriented layout
-   - Simplified navigation
+   - Simplified navigation without version controls
    - Focus on article metadata
+   - Custom header linking to ROCm Blogs
+   - Modified secondary navigation for blog context
+   - No version list or branch indicators
 
 3. **rocm-docs-home**
    - Landing page style
    - Grid layout for main sections
    - Optimized for documentation hubs
+   - Simplified header without version information
+   - Focus on cross-project navigation
+   - Documentation-specific secondary navigation
+
+### Creating Custom Flavors
+
+To create a custom flavor for your project:
+
+1. Create a new directory under `src/rocm_docs/rocm_docs_theme/flavors/your-flavor-name/`
+2. Create the following required files:
+
+```text
+your-flavor-name/
+├── header.jinja         # Header template
+└── left-side-menu.jinja # Left sidebar template
+```
+
+#### Header Template Structure
+
+The header.jinja file must define these macros:
+
+```jinja
+{% macro top_level_header(branch, latest_version, release_candidate_version) -%}
+    {# Define your custom header here #}
+    <a class="klavika-font hover-opacity" href="{{ your_link }}">
+        Your Custom Header Title
+    </a>
+{%- endmacro -%}
+
+{% macro version_list() -%}
+    {# Optional: Define version list behavior #}
+{%- endmacro -%}
+
+{# Define secondary navigation items #}
+{%
+set nav_secondary_items = {
+    "Link 1": "url1",
+    "Link 2": "url2"
+}
+%}
+```
+
+Parameters available to `top_level_header`:
+- `branch`: Current git branch or version
+- `latest_version`: Latest released version
+- `release_candidate_version`: Current release candidate version (if any)
 
 ## Basic Theme Configuration
 
@@ -161,13 +213,6 @@ html_theme_options = {
    - Test on multiple devices
    - Verify mobile navigation
    - Check sidebar behavior
-
-## Examples
-
-See complete theme implementations in the templates:
-
-- [Minimal theme example](../../templates/minimal/docs/conf.py)
-- [Standard theme example](../../templates/standard/docs/conf.py)
 
 ## Troubleshooting
 
