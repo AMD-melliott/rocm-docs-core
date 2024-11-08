@@ -1,12 +1,20 @@
 # User Guide
 
-This guide explains how to use ROCm Docs Core to create and maintain documentation for ROCm projects.
+ROCm Docs Core simplifies the process of creating and maintaining documentation for ROCm projects. This guide walks you through everything from initial setup to advanced features, helping you create professional-quality documentation that integrates seamlessly with the broader ROCm ecosystem.
+
+Whether you're starting a new documentation project or improving existing docs, you'll find comprehensive information about:
+- Setting up your documentation structure
+- Writing and organizing content
+- Integrating API documentation
+- Ensuring documentation quality
+- Customizing appearance
+- Troubleshooting common issues
 
 ## Getting Started
 
-- [Project Structure](project_structure.md): Learn about the required files and directory structure
-- [Configuration](configuration.md): Configure your documentation site
-- [Building Documentation](building.md): Build and preview your documentation locally
+- [Project Structure](project_structure.md): Learn about the required files and directory structure for your documentation project
+- [Configuration](configuration.md): Set up your documentation with proper settings and extensions
+- [Building Documentation](building.md): Instructions for building, testing, and deploying your documentation
 
 ## Basic Features
 
@@ -22,8 +30,8 @@ This guide explains how to use ROCm Docs Core to create and maintain documentati
 
 ## Quality Tools
 
-- [Spell Checking](spellcheck.md): Ensure correct spelling
-- [Documentation Linting](linting.md): Maintain consistent formatting
+- [Spell Checking](spellcheck.md): Maintain documentation accuracy with automated spell checking
+- [Documentation Linting](linting.md): Ensure consistent formatting and structure
 
 ## Troubleshooting
 
