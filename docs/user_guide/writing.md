@@ -154,7 +154,7 @@ List of configuration options:
 - [Related Feature](related.md)
 - [API Reference](../api/reference.md)
 
-```
+```text
 
 ## MyST-Specific Features
 

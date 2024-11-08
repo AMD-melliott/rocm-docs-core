@@ -49,6 +49,7 @@ doxysphinx_enabled = True
 ```
 
 For complete examples, see:
+
 - [Modern configuration example](./tests/sites/doxygen/extension/conf.py)
 - [Legacy configuration example](./tests/sites/doxygen/legacy/conf.py)
 

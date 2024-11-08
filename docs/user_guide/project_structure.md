@@ -6,15 +6,15 @@ This guide explains the required structure for ROCm documentation projects and p
 
 A basic ROCm documentation project requires the following structure:
 
-```
+```text
 your-project/
 ├── docs/
 │   ├── conf.py                 # Sphinx configuration
 │   ├── index.md                # Documentation homepage
 │   └── sphinx/
-│       └── _toc.yml           # Table of contents
+│       └── _toc.yml            # Table of contents
 ├── requirements.txt            # Python dependencies
-└── .gitignore                 # Git ignore file
+└── .gitignore                  # Git ignore file
 ```
 
 ### Required Files Explained
@@ -60,7 +60,7 @@ subtrees:
 
 Must include rocm-docs-core and any additional dependencies:
 
-```
+```text
 rocm-docs-core>=1.8.3
 sphinx>=5.3.0
 ```
@@ -69,7 +69,7 @@ sphinx>=5.3.0
 
 ### Basic Documentation Site
 
-```
+```text
 your-project/
 ├── docs/
 │   ├── conf.py
@@ -85,7 +85,7 @@ your-project/
 
 ### API Documentation with Doxygen
 
-```
+```text
 your-project/
 ├── docs/
 │   ├── conf.py
@@ -111,7 +111,7 @@ doxysphinx_enabled = True
 
 ### Multi-Project Documentation
 
-```
+```text
 your-project/
 ├── docs/
 │   ├── conf.py
@@ -144,11 +144,3 @@ external_projects = ["other_project1", "other_project2"]
 3. **Invalid Markdown Files**: Use `.md` extension for Markdown files (not `.markdown` or `.mdown`).
 
 4. **Wrong Doxygen Structure**: When using Doxygen, maintain the expected directory structure for proper integration.
-
-## Example Repositories
-
-For complete working examples, see:
-
-- [Basic site template](../../templates/minimal/)
-- [Full-featured template](../../templates/standard/)
-- [Doxygen integration example](../../tests/sites/doxygen/extension/)
