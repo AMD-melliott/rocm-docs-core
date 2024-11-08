@@ -38,6 +38,14 @@ html_theme_options = {
    - Focus on cross-project navigation
    - Documentation-specific secondary navigation
 
+4. **generic**
+   - Highly configurable theme for non-ROCm projects
+   - Customizable header, navigation, and links
+   - Flexible branding options
+   - Version control integration (optional)
+   - Configurable secondary navigation
+   - Suitable for any technical documentation
+
 ### Creating Custom Flavors
 
 To create a custom flavor for your project:
@@ -230,3 +238,98 @@ html_theme_options = {
    - Validate option names
    - Check value types
    - Consult theme documentation
+
+### Using the Generic Flavor
+
+The generic flavor provides a flexible template system for projects outside the ROCm ecosystem. It allows complete customization of headers, navigation, and branding while maintaining the core functionality of the documentation system.
+
+#### Basic Configuration
+
+Minimal configuration in conf.py:
+
+```python
+html_theme_options = {
+    "flavor": "generic",
+    "header_title": "My Project Documentation",
+    "nav_secondary_items": {
+        "GitHub": "https://github.com/myorg/myproject",
+        "Documentation": "https://docs.myproject.org"
+    }
+}
+```
+
+#### Full Configuration Example
+
+```python
+html_theme_options = {
+    "flavor": "generic",
+    
+    # Header Configuration
+    "header_title": "AMD GPU Operator 1.0.0",  # Replaces default "{project} {version}"
+    "header_link": "https://docs.myproject.org",  # Header title click destination
+    
+    # Version Control
+    "version_list_link": "https://docs.myproject.org/versions",  # Optional version list
+    
+    # Left Sidebar Configuration
+    "main_doc_link": ("Project Home", "https://docs.myproject.org"),  # Sidebar title and link
+    
+    # Top Navigation Links
+    "nav_secondary_items": {
+        "GitHub": "https://github.com/myorg/myproject",
+        "Documentation": "https://docs.myproject.org",
+        "Support": "https://github.com/myorg/myproject/issues",
+        "Community": "https://community.myproject.org"
+    },
+    
+    # Footer Configuration
+    "license_link": "https://www.myproject.org/license",
+    "license_text": "Project License"
+}
+```
+
+#### Configuration Options Reference
+
+| Option | Description | Default | Example |
+|--------|-------------|---------|---------|
+| `header_title` | Main title in top header | `{project} {version}` | `"My Project 1.0"` |
+| `header_link` | Header title destination | `#` | `"https://docs.myproject.org"` |
+| `version_list_link` | Link to version list | None | `"https://docs.myproject.org/versions"` |
+| `main_doc_link` | Sidebar title and link | `(project, "#")` | `("Project Home", "https://docs.myproject.org")` |
+| `nav_secondary_items` | Top navigation links | Basic GitHub links | See example below |
+| `license_link` | License page URL | None | `"https://www.myproject.org/license"` |
+| `license_text` | License link text | `"License"` | `"View Project License"` |
+
+#### Navigation Items Example
+
+```python
+"nav_secondary_items": {
+    "GitHub": "https://github.com/myorg/myproject",
+    "Documentation": "https://docs.myproject.org",
+    "Support": "https://github.com/myorg/myproject/issues",
+    "API Reference": "https://api.myproject.org",
+    "Community": "https://community.myproject.org"
+}
+```
+
+#### Best Practices for Generic Flavor
+
+1. **Header Configuration**
+   - Use clear, descriptive titles
+   - Include version information if relevant
+   - Link to main documentation landing page
+
+2. **Navigation Setup**
+   - Include essential links only
+   - Order links by importance
+   - Ensure all links are valid and accessible
+
+3. **Version Control**
+   - Add version list link if multiple versions exist
+   - Use consistent version numbering
+   - Link to a clear version overview page
+
+4. **Branding**
+   - Maintain consistent project naming
+   - Use appropriate links for your project ecosystem
+   - Consider your target audience when customizing
