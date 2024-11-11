@@ -7,7 +7,7 @@ namespace MyNamespace {
 
 /**
  * @brief Main class providing core functionality
- * 
+ *
  * This class demonstrates various Doxygen documentation features
  * and how they appear in the generated documentation.
  */
@@ -30,4 +30,4 @@ private:
     int m_value; ///< Internal value
 };
 
-} // namespace MyNamespace 
+} // namespace MyNamespace

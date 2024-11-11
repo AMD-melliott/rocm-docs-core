@@ -92,12 +92,11 @@ def _update_banner(
 
     theme_opts.setdefault("announcement", announcement_info)
 
-
 def _update_theme_options(app: Sphinx) -> None:
     theme_opts = get_theme_options_dict(app)
     _update_repo_opts(str(app.srcdir), theme_opts)
 
-    supported_flavors = ["rocm", "local", "rocm-docs-home", "rocm-blogs"]
+    supported_flavors = ["rocm", "local", "rocm-docs-home", "rocm-blogs", "generic"]
     flavor = theme_opts.get("flavor", "rocm")
     if flavor not in supported_flavors:
         logger.error(
@@ -106,6 +105,15 @@ def _update_theme_options(app: Sphinx) -> None:
         )
         flavor = supported_flavors[0]
         theme_opts["flavor"] = flavor
+
+    # Handle generic theme options
+    if flavor == "generic":
+        theme_opts.setdefault("header_title", "")
+        theme_opts.setdefault("header_link", "#")
+        theme_opts.setdefault("version_list_link", None)
+        theme_opts.setdefault("nav_secondary_items", {})
+        theme_opts.setdefault("license_link", None)
+        theme_opts.setdefault("license_text", "License")
 
     theme_opts.setdefault(
         "article_header_start",
@@ -172,7 +180,16 @@ def setup(app: Sphinx) -> dict[str, Any]:
     app.connect("html-page-context", _add_custom_context)
     app.connect("builder-inited", _update_theme_options)
 
+    # Add theme option declarations
+    app.add_config_value("header_title", "", "html")
+    app.add_config_value("header_link", "#", "html")
+    app.add_config_value("version_list_link", None, "html")
+    app.add_config_value("nav_secondary_items", {}, "html", [dict])
+    app.add_config_value("license_link", None, "html")
+    app.add_config_value("license_text", "License", "html")
+
     return {
         "parallel_read_safe": True,
         "parallel_write_safe": True,
+        "version": "1.0",
     }

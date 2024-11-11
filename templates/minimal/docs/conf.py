@@ -11,4 +11,4 @@ html_theme = "rocm_docs_theme"
 extensions = ["rocm_docs"]
 
 # Table of contents
-external_toc_path = "./sphinx/_toc.yml" 
+external_toc_path = "./sphinx/_toc.yml"

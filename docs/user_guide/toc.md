@@ -42,7 +42,7 @@ subtrees:
           - entries:
               - file: user_guide/getting_started
               - file: user_guide/basic_usage
-  
+
   - caption: API Reference
     entries:
       - file: api/overview
@@ -115,18 +115,18 @@ subtrees:
     entries:
       - file: getting_started/installation
       - file: getting_started/quickstart
-      
+
   - caption: User Guide
     entries:
       - file: user_guide/index
       - file: user_guide/basic_concepts
       - file: user_guide/advanced_usage
-      
+
   - caption: API Reference
     entries:
       - file: api/overview
       - file: api/reference
-      
+
   - caption: Development
     entries:
       - file: development/contributing

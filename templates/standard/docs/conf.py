@@ -45,4 +45,4 @@ article_pages = [
         "date": "2024-03-20",
         "read-time": "5 min read"
     }
-] 
+]

@@ -110,6 +110,33 @@ Add your logo to `_static/` and configure in `conf.py`:
 html_logo = "_static/logo.png"
 ```
 
+### How do I use the generic theme for non-ROCm projects?
+
+1. Configure the generic flavor in your conf.py:
+
+```python
+html_theme_options = {
+    "flavor": "generic",
+    "header_title": "My Project Documentation",
+    "nav_secondary_items": {
+        "GitHub": "https://github.com/myorg/myproject",
+        "Documentation": "https://docs.myproject.org"
+    }
+}
+```
+
+2. See the [Theme Customization Guide](theme.md#using-the-generic-flavor) for full configuration options.
+
+### How do I remove ROCm branding from my documentation?
+
+Use the generic theme flavor and customize the header and navigation:
+1. Set `flavor` to "generic"
+2. Configure custom header title and links
+3. Define your own navigation items
+4. Set custom footer links
+
+See [Generic Theme Configuration](theme.md#full-configuration-example) for examples.
+
 ## Quality and Testing
 
 ### How do I check for spelling errors?

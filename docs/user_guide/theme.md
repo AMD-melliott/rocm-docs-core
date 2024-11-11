@@ -263,17 +263,17 @@ html_theme_options = {
 ```python
 html_theme_options = {
     "flavor": "generic",
-    
+
     # Header Configuration
-    "header_title": "AMD GPU Operator 1.0.0",  # Replaces default "{project} {version}"
-    "header_link": "https://docs.myproject.org",  # Header title click destination
-    
+    "header_title": "AMD GPU Operator 1.0.0",
+    "header_link": "https://docs.myproject.org",
+
     # Version Control
     "version_list_link": "https://docs.myproject.org/versions",  # Optional version list
-    
+
     # Left Sidebar Configuration
     "main_doc_link": ("Project Home", "https://docs.myproject.org"),  # Sidebar title and link
-    
+
     # Top Navigation Links
     "nav_secondary_items": {
         "GitHub": "https://github.com/myorg/myproject",
@@ -281,7 +281,7 @@ html_theme_options = {
         "Support": "https://github.com/myorg/myproject/issues",
         "Community": "https://community.myproject.org"
     },
-    
+
     # Footer Configuration
     "license_link": "https://www.myproject.org/license",
     "license_text": "Project License"

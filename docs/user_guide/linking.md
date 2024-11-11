@@ -64,7 +64,7 @@ external_projects = [
    ```markdown
    # Good
    See the [HIP Installation Guide](hip:installation)
-   
+
    # Avoid
    Click [here](hip:installation) for HIP installation
    ```

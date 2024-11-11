@@ -22,9 +22,9 @@ subtrees:
     entries:
     - file: user_guide/writing
     - file: user_guide/toc
-    - file: user_guide/article_info    
+    - file: user_guide/article_info
   - caption: Advanced Features
-    entries:    
+    entries:
     - file: user_guide/theme
     - file: user_guide/linking
       entries:
@@ -33,14 +33,15 @@ subtrees:
       - file: user_guide/linking_toc
     - file: user_guide/doxygen_integration
   - caption: Quality Tools
-    entries:  
+    entries:
     - file: user_guide/spellcheck
     - file: user_guide/linting
   - caption: Troubleshooting
     entries:
     - file: user_guide/faq
-  - file: developer_guide/developer_guide
+  - caption: Developer Guide
     entries:
+    - file: developer_guide/developer_guide
     - file: developer_guide/just
     - file: developer_guide/python_linting
     - file: developer_guide/commitizen

@@ -24,31 +24,35 @@ pip install rust-just
 ### Local Development Setup
 
 - Clone the repository:
-   
+
 ```bash
 git clone https://github.com/ROCm/rocm-docs-core.git
 cd rocm-docs-core
 ```
 
 - Set up the development environment:
-  
+
  ```bash
 just devenv
  ```
 
 ### Building and Installing Locally
 
--  Build the package:
+1. Build the package:
+   ```bash
+   just build
+   ```
 
-```bash
-just build
-```
+2. Install the local build with force-reinstall:
+   ```bash
+   pip install dist/rocm_docs_core-*.whl --force-reinstall
+   ```
 
-- Install the local build:
-
- ```bash
- pip install dist/rocm_docs_core-*.whl
- ```
+   > **Note:** Using `--force-reinstall` is important during development as it ensures:
+   > - Complete removal of the old installation
+   > - Fresh installation of all files
+   > - No cached files from previous versions
+   > - Proper update of all theme assets
 
 ### Testing Your Changes
 
@@ -84,7 +88,7 @@ cd test-docs
  ```
 
 - Build the documentation:
-  
+
  ```bash
  sphinx-build -b html docs docs/_build/html
  ```
@@ -141,6 +145,84 @@ sphinx-autobuild . _build/html
   - One for git operations
 - Check the sphinx-autobuild output for errors
 - Clear your browser cache if styles don't update
+
+### Testing Theme Changes with External Documentation
+
+When developing theme changes in rocm-docs-core that you want to test with another documentation project, use the following workflow:
+
+1. Set up your development environment in rocm-docs-core:
+   ```bash
+   cd rocm-docs-core
+   python -m venv .venv
+   source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+   just devenv
+   ```
+
+2. Build and install rocm-docs-core:
+   ```bash
+   just build
+   pip install dist/rocm_docs_core-*.whl --force-reinstall
+   ```
+
+3. In a separate directory, set up your external documentation (using the same venv):
+   ```bash
+   cd ../your-project
+   # Still using the same activated venv from rocm-docs-core
+
+   # Create basic doc structure if needed
+   mkdir -p docs/sphinx
+   touch docs/conf.py docs/index.md docs/sphinx/_toc.yml
+   ```
+
+4. Configure your documentation to use the desired theme flavor:
+   ```python
+   # docs/conf.py
+   html_theme = "rocm_docs_theme"
+   html_theme_options = {
+       "flavor": "generic",  # or "rocm" for ROCm documentation
+       "header_title": "Your Project Name",
+       "nav_secondary_items": {
+           "GitHub": "https://github.com/org/project",
+           "Documentation": "https://docs.org/project"
+       }
+   }
+   extensions = ["rocm_docs"]
+   ```
+
+5. Start sphinx-autobuild for your documentation:
+   ```bash
+   cd your-project/docs
+   sphinx-autobuild . _build/html
+   ```
+
+6. When you make changes to the theme in rocm-docs-core:
+   ```bash
+   # In rocm-docs-core directory
+   just build
+   pip install dist/rocm_docs_core-*.whl --force-reinstall
+
+   # The sphinx-autobuild process will detect theme changes
+   # and rebuild automatically
+   ```
+
+#### Development Tips for Theme Testing
+
+1. Use multiple terminal windows:
+   - Terminal 1: rocm-docs-core development (building/installing)
+   - Terminal 2: sphinx-autobuild for your documentation
+   - Terminal 3: git operations
+
+2. Keep the same venv activated in all terminals:
+   ```bash
+   source /path/to/rocm-docs-core/.venv/bin/activate
+   ```
+
+3. Watch the sphinx-autobuild output for errors after theme changes
+
+4. If styles don't update:
+   - Clear your browser cache
+   - Stop and restart sphinx-autobuild
+   - Verify the new wheel was installed correctly
 
 ## Additional Development Topics
 
