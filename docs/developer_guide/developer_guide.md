@@ -38,17 +38,20 @@ just devenv
 
 ### Building and Installing Locally
 
-1. Build the package:
-   ```bash
-   just build
-   ```
+- Build the package:
 
-2. Install the local build with force-reinstall:
-   ```bash
-   pip install dist/rocm_docs_core-*.whl --force-reinstall
-   ```
+```bash
+just build
+```
+
+- Install the local build with force-reinstall:
+
+```bash
+pip install dist/rocm_docs_core-*.whl --force-reinstall
+```
 
    > **Note:** Using `--force-reinstall` is important during development as it ensures:
+   >
    > - Complete removal of the old installation
    > - Fresh installation of all files
    > - No cached files from previous versions
