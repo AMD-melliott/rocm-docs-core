@@ -23,7 +23,7 @@ class MkDocsConverter:
     def convert(self):
         """Run the full conversion process."""
         print(f"Converting {self.source_dir} to {self.target_dir}")
-        
+
         # Load MkDocs configuration
         self.mkdocs_config = self._load_mkdocs_config()
         if not self.mkdocs_config:
@@ -52,7 +52,7 @@ class MkDocsConverter:
         config_path = self.source_dir / "mkdocs.yml"
         if not config_path.exists():
             return None
-        
+
         with open(config_path, 'r') as f:
             return yaml.safe_load(f)
 
@@ -99,45 +99,76 @@ class MkDocsConverter:
     def _convert_navigation(self):
         """Convert MkDocs navigation to ROCm Docs Core TOC."""
         nav = self.mkdocs_config.get('nav', [])
-        
+
+        # Create the base TOC structure
         toc = {
             "root": "index",
-            "subtrees": self._convert_nav_section(nav)
+            "defaults": {
+                "numbered": False,
+                "maxdepth": 6
+            },
+            "subtrees": []
         }
 
-        # Write _toc.yml
-        with open(self.target_dir / "docs/sphinx/_toc.yml", 'w') as f:
-            yaml.dump(toc, f, sort_keys=False)
-
-    def _convert_nav_section(self, nav_items: List) -> List[Dict]:
-        """Convert a navigation section recursively."""
-        result = []
-        
-        for item in nav_items:
+        # Add sections based on navigation
+        for item in nav:
             if isinstance(item, dict):
                 for title, content in item.items():
                     if isinstance(content, list):
-                        # This is a section with subsections
-                        result.append({
+                        section = {
                             "caption": title,
-                            "entries": self._convert_nav_section(content)
-                        })
+                            "entries": self._convert_nav_entries(content)
+                        }
+                        toc["subtrees"].append(section)
+            elif isinstance(item, str) and item != "index.md":
+                # Handle direct page references if any
+                toc["subtrees"].append({
+                    "caption": "Miscellaneous",
+                    "entries": [{
+                        "file": self._clean_path(item)
+                    }]
+                })
+
+        # Write _toc.yml.in instead of _toc.yml
+        with open(self.target_dir / "docs/sphinx/_toc.yml.in", 'w') as f:
+            yaml.dump(toc, f, sort_keys=False, allow_unicode=True)
+
+    def _convert_nav_entries(self, entries: List) -> List[Dict]:
+        """Convert navigation entries recursively."""
+        result = []
+
+        for entry in entries:
+            if isinstance(entry, dict):
+                # Handle nested section
+                for title, content in entry.items():
+                    if isinstance(content, list):
+                        # Nested section with multiple entries
+                        section = {
+                            "caption": title,
+                            "entries": self._convert_nav_entries(content)
+                        }
+                        result.append(section)
                     else:
-                        # This is a single page
+                        # Single page entry
                         result.append({
                             "file": self._clean_path(content)
                         })
-            elif isinstance(item, str):
-                # This is a section title
-                result.append({"caption": item})
+            else:
+                # Direct page reference
+                result.append({
+                    "file": self._clean_path(entry)
+                })
 
         return result
 
     def _clean_path(self, path: str) -> str:
         """Clean file paths for ROCm Docs Core."""
-        # Remove .md extension
+        if not path:
+            return "index"
+        # Remove .md extension and handle index files
         path = re.sub(r'\.md$', '', path)
-        return path
+        path = re.sub(r'index$', '', path).rstrip('/')
+        return path or "index"
 
     def _convert_markdown_files(self):
         """Convert Markdown files to ROCm Docs Core format."""
@@ -182,11 +213,11 @@ class MkDocsConverter:
         """Convert MkDocs admonition to MyST format."""
         lines = match.group(0).split('\n')
         admonition_type = lines[0].split('!!!')[1].strip()
-        
+
         # Remove the 4-space indentation from content
-        content = [line[4:] if line.startswith('    ') else line 
+        content = [line[4:] if line.startswith('    ') else line
                   for line in lines[1:] if line]
-        
+
         return f"```{{{admonition_type}}}\n" + '\n'.join(content) + "\n```\n"
 
 
@@ -202,9 +233,9 @@ def main():
         "target",
         help="Target directory for converted documentation"
     )
-    
+
     args = parser.parse_args()
-    
+
     converter = MkDocsConverter(
         Path(args.source).resolve(),
         Path(args.target).resolve()
@@ -213,4 +244,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    main()
